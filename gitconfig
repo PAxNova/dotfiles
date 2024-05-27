@@ -59,3 +59,6 @@
 
 [init]
   defaultBranch = master
+[user]
+	email = pierreaxel.iz@gmail.com
+	name = Pierre Axel Izerable

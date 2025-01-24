@@ -2,3 +2,8 @@ Host *
   UseKeychain yes
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519
+
+Host do-scraper
+    HostName 138.197.185.214
+    User root
+    IdentityFile ~/.ssh/do_scraper

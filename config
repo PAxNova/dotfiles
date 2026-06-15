@@ -1,9 +1,35 @@
+# ── Tunnel clipboard dédié (Kepler → Mac) ───────────────────────────────
+# Utilisé UNIQUEMENT par le LaunchAgent autossh. C'est le SEUL propriétaire
+# du reverse-forward 8378 : une fois ce tunnel up, n'importe quel process sur
+# Kepler (toutes les sessions tmux incluses) peut faire `nc localhost 8378`.
+Host kepler-clip-tunnel
+  HostName 100.66.166.70
+  User pierre-axel
+  RemoteForward 48757 127.0.0.1:48757
+  ExitOnForwardFailure yes
+
+# ── Sessions interactives ───────────────────────────────────────────────
+# PAS de RemoteForward ici : autossh possède déjà le port 8378, donc plus
+# aucune bagarre quand plusieurs sessions tmux (t1, t2, t10…) sont ouvertes.
+Host 192.168.1.45
+  HostName 192.168.1.45
+  User pierre-axel
+
+Host kyvernos-local
+  HostName 192.168.1.45
+  User pierre-axel
+  Port 22
+
+Host kyvernos-tailscale
+  HostName 100.66.166.70
+  User pierre-axel
+  Port 22
+
 Host *
   UseKeychain yes
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519
-
-Host do-scraper
-    HostName 138.197.185.214
-    User root
-    IdentityFile ~/.ssh/do_scraper
+  # Détecte vite une session morte (Mac qui dort, coupure réseau) et la ferme,
+  # au lieu de laisser un zombie qui ne porte plus le tunnel.
+  ServerAliveInterval 30
+  ServerAliveCountMax 3

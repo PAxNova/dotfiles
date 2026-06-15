@@ -1,5 +1,84 @@
 // Place your key bindings in this file to override the defaults
 [
+  // === Accès rapide aux 9 terminaux ===
+  {
+    "key": "ctrl+shift+1",
+    "command": "workbench.action.terminal.focusAtIndex1"
+  },
+  {
+    "key": "ctrl+shift+2",
+    "command": "workbench.action.terminal.focusAtIndex2"
+  },
+  {
+    "key": "ctrl+shift+3",
+    "command": "workbench.action.terminal.focusAtIndex3"
+  },
+  {
+    "key": "ctrl+shift+4",
+    "command": "workbench.action.terminal.focusAtIndex4"
+  },
+  {
+    "key": "ctrl+shift+5",
+    "command": "workbench.action.terminal.focusAtIndex5"
+  },
+  {
+    "key": "ctrl+shift+6",
+    "command": "workbench.action.terminal.focusAtIndex6"
+  },
+  {
+    "key": "ctrl+shift+7",
+    "command": "workbench.action.terminal.focusAtIndex7"
+  },
+  {
+    "key": "ctrl+shift+8",
+    "command": "workbench.action.terminal.focusAtIndex8"
+  },
+  {
+    "key": "ctrl+shift+9",
+    "command": "workbench.action.terminal.focusAtIndex9"
+  },
+  // === Créer un nouveau terminal ===
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  // === Maximiser/Restaurer le panneau terminal ===
+  {
+    "key": "ctrl+shift+m",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  // === Lancer 7 terminaux d'un coup (1-5 lancent claude, 6 lance claude-monitor) ===
+  {
+    "key": "ctrl+shift+t",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        { "command": "workbench.action.terminal.new" },
+        { "command": "workbench.action.terminal.renameWithArg", "args": { "name": "1-claude" } },
+        { "command": "workbench.action.terminal.sendSequence", "args": { "text": "claude\n" } },
+        { "command": "workbench.action.terminal.new" },
+        { "command": "workbench.action.terminal.renameWithArg", "args": { "name": "2-claude" } },
+        { "command": "workbench.action.terminal.sendSequence", "args": { "text": "claude\n" } },
+        { "command": "workbench.action.terminal.new" },
+        { "command": "workbench.action.terminal.renameWithArg", "args": { "name": "3-claude" } },
+        { "command": "workbench.action.terminal.sendSequence", "args": { "text": "claude\n" } },
+        { "command": "workbench.action.terminal.new" },
+        { "command": "workbench.action.terminal.renameWithArg", "args": { "name": "4-claude" } },
+        { "command": "workbench.action.terminal.sendSequence", "args": { "text": "claude\n" } },
+        { "command": "workbench.action.terminal.new" },
+        { "command": "workbench.action.terminal.renameWithArg", "args": { "name": "5-claude" } },
+        { "command": "workbench.action.terminal.sendSequence", "args": { "text": "claude\n" } },
+        { "command": "workbench.action.terminal.new" },
+        { "command": "workbench.action.terminal.renameWithArg", "args": { "name": "6-monitor" } },
+        { "command": "workbench.action.terminal.sendSequence", "args": { "text": "claude-monitor\n" } },
+        { "command": "workbench.action.terminal.new" },
+        { "command": "workbench.action.terminal.renameWithArg", "args": { "name": "7" } },
+        { "command": "workbench.action.terminal.focusAtIndex1" }
+      ]
+    }
+  },
+  // === Autres raccourcis ===
   {
     "key": "ctrl+shift+v",
     "command": "pasteAndIndent.action",
@@ -23,5 +102,9 @@
     "key": "shift+alt+cmd+[Period]",
     "command": "-editor.action.commentLine",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
   }
 ]

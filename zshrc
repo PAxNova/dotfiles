@@ -88,9 +88,64 @@ alias python=python3
 
 # Load additional environment variables and scripts from .local/bin
 # Ensures custom scripts in ~/.local/bin are available globally
-. "$HOME/.local/bin/env"
+# . "$HOME/.local/bin/env"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Add Python 3.12 to the PATH and prioritize it
 # Ensures Python 3.12 is used as the default version for `python3`
 export PATH="/opt/homebrew/opt/python@3.12/libexec/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/pierreaxel/.lmstudio/bin"
+
+export PATH="$HOME/.console-ninja/.bin:$PATH"
+export PATH="/Users/pierreaxel/.yarn/bin:$PATH"
+
+# Task Master aliases added on 7/29/2025
+alias tm='task-master'
+alias taskmaster='task-master'
+
+export PATH="/Users/pierreaxel/.local/bin:$PATH"
+alias kicad-cli="/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli"
+
+# Added by Antigravity
+export PATH="/Users/pierreaxel/.antigravity/antigravity/bin:$PATH"
+alias cc="claude"
+alias kepler="clawdbot tui --url ws://192.168.1.25:18789 --token 03cc4fdbfc1ffcc37512f172af2cc8cd57b49758a67dc1a9"
+export PATH="$HOME/bin:$PATH"
+
+# Auto-Claude tmux sessions on server
+alias t1="ssh pierre-axel@192.168.1.45 -t 'tmux new -As session1'"
+alias t2="ssh pierre-axel@192.168.1.45 -t 'tmux new -As session2'"
+alias t3="ssh pierre-axel@192.168.1.45 -t 'tmux new -As session3'"
+alias t4="ssh pierre-axel@192.168.1.45 -t 'tmux new -As session4'"
+alias t5="ssh pierre-axel@192.168.1.45 -t 'tmux new -As session5'"
+alias t6="ssh pierre-axel@192.168.1.45 -t 'tmux new -As session6'"
+alias t7="ssh pierre-axel@192.168.1.45 -t 'tmux new -As session7'"
+alias t8="ssh pierre-axel@192.168.1.45 -t 'tmux new -As session8'"
+alias t9="ssh pierre-axel@192.168.1.45 -t 'tmux new -As session9'"
+alias t10="ssh pierre-axel@192.168.1.45 -t 'tmux new -As session10'"
+alias t11="ssh pierre-axel@192.168.1.45 -t 'tmux new -As session11'"
+alias t12="ssh pierre-axel@192.168.1.45 -t 'tmux new -As session12'"
+
+# Remote tmux sessions via Tailscale
+REMOTE_SERVER_IP="100.66.166.70"
+alias rt1="ssh pierre-axel@\${REMOTE_SERVER_IP} -t 'tmux new -As session1'"
+alias rt2="ssh pierre-axel@\${REMOTE_SERVER_IP} -t 'tmux new -As session2'"
+alias rt3="ssh pierre-axel@\${REMOTE_SERVER_IP} -t 'tmux new -As session3'"
+alias rt4="ssh pierre-axel@\${REMOTE_SERVER_IP} -t 'tmux new -As session4'"
+alias rt5="ssh pierre-axel@\${REMOTE_SERVER_IP} -t 'tmux new -As session5'"
+alias rt6="ssh pierre-axel@\${REMOTE_SERVER_IP} -t 'tmux new -As session6'"
+alias rt7="ssh pierre-axel@\${REMOTE_SERVER_IP} -t 'tmux new -As session7'"
+alias rt8="ssh pierre-axel@\${REMOTE_SERVER_IP} -t 'tmux new -As session8'"
+alias rt9="ssh pierre-axel@\${REMOTE_SERVER_IP} -t 'tmux new -As session9'"
+alias rt10="ssh pierre-axel@\${REMOTE_SERVER_IP} -t 'tmux new -As session10'"
+alias rt11="ssh pierre-axel@\${REMOTE_SERVER_IP} -t 'tmux new -As session11'"
+alias rt12="ssh pierre-axel@\${REMOTE_SERVER_IP} -t 'tmux new -As session12'"
+
+# bun completions
+[ -s "/Users/pierreaxel/.bun/_bun" ] && source "/Users/pierreaxel/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
